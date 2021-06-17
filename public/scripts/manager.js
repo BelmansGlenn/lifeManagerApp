@@ -1,8 +1,31 @@
 // FRONT END FILE TO INTERACT WITH THE DOM
+const chooseDay = document.getElementById('chooseDay');
+const dayOfWeek = ["Monday","Tuesday","Wedn.","Thurs.","Friday","Saturday","Sunday"];
+const inputToDo = document.getElementById("toDo");
+const inputWorkout = document.getElementById("workout");
+const inputMeal = document.getElementById("meal");
+const inputBuy = document.getElementById("buy");
+let i = 0;
+let theDay = `<p>${dayOfWeek[i]}</p>`;
+chooseDay.addEventListener('click', (e) => {
+    chooseDay.innerHTML="";
+    e.preventDefault();
+    if(i<dayOfWeek.length-1){
+        i++;   
+        theDay = `<p>${dayOfWeek[i]}</p>`;
+        chooseDay.insertAdjacentHTML("beforeend", theDay);
+    }else{
+        i = 0;
+        theDay = `<p>${dayOfWeek[i]}</p>`;
+        chooseDay.insertAdjacentHTML("beforeend", theDay);
+    }
+    
+})
+
+chooseDay.insertAdjacentHTML("beforeend", theDay);
 
 // Take activies input
 // To Do
-let inputToDo = document.getElementById("toDo")
 inputToDo.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         let inputValue = inputToDo.value
@@ -10,7 +33,6 @@ inputToDo.addEventListener('keypress', (e) => {
     }
 })
 // Workout 
-let inputWorkout = document.getElementById("workout")
 inputWorkout.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         let inputValue = inputWorkout.value
@@ -18,7 +40,6 @@ inputWorkout.addEventListener('keypress', (e) => {
     }
 })
 // Meal 
-let inputMeal = document.getElementById("meal")
 inputMeal.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         let inputValue = inputMeal.value
@@ -26,7 +47,6 @@ inputMeal.addEventListener('keypress', (e) => {
     }
 })
 // Buy 
-let inputBuy = document.getElementById("buy")
 inputBuy.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         let inputValue = inputBuy.value
@@ -34,8 +54,5 @@ inputBuy.addEventListener('keypress', (e) => {
     }
 })
 // Take activies input end
-
-
-
 
 

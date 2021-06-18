@@ -11,6 +11,46 @@
 body {
   background-color: #191928;
 }
+
+/* usefull */
+.roundBtn {
+  width: 211px;
+  height: 211px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid rgba(126, 110, 148, 1);
+}
+.goBackBtn {
+  font-size: 50px;
+  width: 171px;
+  height: 171px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid rgba(126, 110, 148, 1);
+}
+.marginGoBack {
+  margin-top: 15px;
+}
+.fontEffect {
+  color: rgba(106, 255, 246, 0.26);
+  font-style: normal;
+  font-weight: bold;
+  line-height: 44px;
+  color: rgba(106, 255, 246, 0.26);
+  text-shadow: 0px 0px 2px #E3F7F5;
+}
+.fSize57 {
+  font-size: 57px;
+}
+.redHover:hover {
+  color: rgba(232, 82, 82, 0.59);
+  text-shadow: 0px 0px 2px #866E7D;
+}
+/* usefull */
 .mainHome {
   display: flex;
   flex-direction: column;
@@ -30,26 +70,6 @@ body {
 	100% {
 		background-position: 0% 50%;
 	}
-}
-.roundBtn {
-  width: 211px;
-  height: 211px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 5px solid rgba(126, 110, 148, 1);
-}
-.fontEffect {
-  color: rgba(106, 255, 246, 0.26);
-  font-style: normal;
-  font-weight: bold;
-  line-height: 44px;
-  color: rgba(106, 255, 246, 0.26);
-  text-shadow: 0px 0px 2px #E3F7F5;
-}
-.fSize57 {
-  font-size: 57px;
 }
 /* Accomplishment Btn start  */
 .accBtn {

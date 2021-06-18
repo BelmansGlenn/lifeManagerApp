@@ -66,7 +66,7 @@ body{
 .inputDisplay {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 250px;
   height: 80px;
   background: transparent;
@@ -78,6 +78,7 @@ body{
   line-height: 44px;
   color: rgb(133 201 255);
   text-shadow: 0px 0px 2px #E3F7F5;
+  padding: 20px;
 }
   .footer{
       display: flex;

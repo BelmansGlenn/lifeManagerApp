@@ -40,47 +40,42 @@ chooseDay.insertAdjacentHTML("beforeend", theDay);
 // To Do
 inputToDo.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
-        let inputValue = inputToDo.value
-        let newTask = `
-        <section class="taskInput">
-        <article class="inputDisplay">${inputValue}</article>
-        </section>`
-        taskInput[0].insertAdjacentHTML("beforeend", newTask)  
+        
+        let newTask = `<article class="inputDisplay">${inputToDo.value}</article>`
+        taskInput[0].insertAdjacentHTML("beforeend", newTask)
+        inputToDo.value = "" 
     }
 })
 // Workout 
 inputWorkout.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
-        let inputValue = inputWorkout.value
-        let newTask = `
-        <section class="taskInput">
-        <article class="inputDisplay">${inputValue}</article>
-        </section>`
+        let newTask = `<article class="inputDisplay">${inputWorkout.value}</article>`
         taskInput[1].insertAdjacentHTML("beforeend", newTask) 
+        inputWorkout.value = "" 
     }
 })
 // Meal 
 inputMeal.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
-        let inputValue = inputMeal.value
-        let newTask = `
-        <section class="taskInput">
-        <article class="inputDisplay">${inputValue}</article>
-        </section>`
-        taskInput[2].insertAdjacentHTML("beforeend", newTask) 
+        let newTask = `<article class="inputDisplay">${inputMeal.value}</article>`
+        taskInput[2].insertAdjacentHTML("beforeend", newTask)
+        inputMeal.value = ""  
     }
 })
 // Buy 
 inputBuy.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
-        let inputValue = inputBuy.value
-        let newTask = `
-        <section class="taskInput">
-        <article class="inputDisplay">${inputValue}</article>
-        </section>`
-        taskInput[3].insertAdjacentHTML("beforeend", newTask) 
+        let newTask = `<article class="inputDisplay">${inputBuy.value}</article>`
+        taskInput[3].insertAdjacentHTML("beforeend", newTask)
+        inputBuy.value = ""  
     }
 })
 // Take activies input end
 
 
+
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var dateTime = date+' '+time;
+alert(dateTime)

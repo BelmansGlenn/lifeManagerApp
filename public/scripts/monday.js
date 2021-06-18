@@ -16,6 +16,15 @@ inputToDo.addEventListener('keypress', (e) => {
             let newTask = `<article class="inputDisplay"><p>${inputToDo.value}</p><i class="fas fa-times-circle redHover"></i></article>`
             taskInput[0].insertAdjacentHTML("beforeend", newTask)
             inputToDo.value = "" 
+            // delete
+            let deleteBtn = document.querySelectorAll(".redHover")
+            deleteBtn.forEach(element => {
+                element.addEventListener("click", (closeBtn) => {
+                    let taskRemove = closeBtn.target.previousSibling
+                    deleteTheTask({table:chooseDay.innerHTML, column:workout, data:taskRemove.innerHTML})
+                    taskRemove.parentNode.remove()
+                    })
+            });
         }   
     }
 }) 
@@ -30,6 +39,15 @@ inputWorkout.addEventListener('keypress', (e) => {
             let newTask = `<article class="inputDisplay"><p>${inputWorkout.value}</p><i class="fas fa-times-circle redHover"></i></article>`
             taskInput[1].insertAdjacentHTML("beforeend", newTask) 
             inputWorkout.value = ""
+            // delete
+            let deleteBtn = document.querySelectorAll(".redHover")
+            deleteBtn.forEach(element => {
+                element.addEventListener("click", (closeBtn) => {
+                    let taskRemove = closeBtn.target.previousSibling
+                    deleteTheTask({table:chooseDay.innerHTML, column:workout, data:taskRemove.innerHTML})
+                    taskRemove.parentNode.remove()
+                    })
+            });
         }   
     } 
 })
@@ -42,7 +60,16 @@ inputMeal.addEventListener('keypress', (e) => {
             addTask({table: chooseDay.innerHTML, column: "meal", data:inputMeal.value});
             let newTask =  `<article class="inputDisplay"><p>${inputMeal.value}</p><i class="fas fa-times-circle redHover"></i></article>`
             taskInput[2].insertAdjacentHTML("beforeend", newTask)
-            inputMeal.value = ""  
+            inputMeal.value = ""
+            // delete
+            let deleteBtn = document.querySelectorAll(".redHover")
+            deleteBtn.forEach(element => {
+                element.addEventListener("click", (closeBtn) => {
+                    let taskRemove = closeBtn.target.previousSibling
+                    deleteTheTask({table:chooseDay.innerHTML, column:workout, data:taskRemove.innerHTML})
+                    taskRemove.parentNode.remove()
+                    })
+            });              
         }   
     } 
 })
@@ -56,6 +83,15 @@ inputBuy.addEventListener('keypress', (e) => {
             let newTask = `<article class="inputDisplay"><p>${inputBuy.value}</p><i class="fas fa-times-circle"></i></article>`
             taskInput[3].insertAdjacentHTML("beforeend", newTask)
             inputBuy.value = "" 
+            // delete
+            let deleteBtn = document.querySelectorAll(".redHover")
+            deleteBtn.forEach(element => {
+                element.addEventListener("click", (closeBtn) => {
+                    let taskRemove = closeBtn.target.previousSibling
+                    deleteTheTask({table:chooseDay.innerHTML, column:workout, data:taskRemove.innerHTML})
+                    taskRemove.parentNode.remove()
+                    })
+            }); 
         }   
     } 
 })

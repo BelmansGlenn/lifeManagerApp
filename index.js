@@ -21,6 +21,11 @@ app.get('/planYourWeek',(req, res) => {
   res.render('day.ejs');
 });
 
+app.get('/tasksOfTheDay',(req, res) => {
+  // callback
+  res.render('today.ejs');
+});
+
 
 // Create here your api setup
 

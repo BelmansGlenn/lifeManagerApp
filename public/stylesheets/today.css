@@ -1,0 +1,56 @@
+
+.fSize18 {
+    font-size: 18px;
+    text-align: center;
+    padding: 15px 0px;
+}
+.numTaskToday {
+    color: rgba(201, 114, 236, 0.26);
+    text-shadow: 0px 0px 2px #E3F7F5;
+    font-size: 22px;
+}
+.displayTaskToday {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.dbTaskDisplay{
+    padding: 10px 15px;
+    width: 250px;
+    background: transparent;
+    border: 3px solid rgba(126, 110, 148, 0.850456);
+    border-radius: 7px;
+    margin-bottom: 20px;
+}
+.activityName {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 44px;
+    text-align: start;
+    color: #83BDF8;
+    text-shadow: 0px 0px 2px #E3F7F5;
+}
+.fontStyleTask {
+    font-family: Oxygen;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+    color: #BFC8C7;
+    text-shadow: 1px 0px 15px rgba(244, 242, 242, 0.25);
+}
+.boxTasks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.uptBtn {
+    height: 21px;
+    width: 21px;
+    border-radius: 50%;
+    border: 1px solid #BFC8C7;
+    margin: 5px 0px;
+}

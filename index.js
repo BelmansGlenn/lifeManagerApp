@@ -43,7 +43,6 @@ app.get('/sunday',(req, res) => {
 
 
 app.get('/tasksOfTheDay',(req, res) => {
-  // callback
   res.render('today.ejs');
 });
 
@@ -53,6 +52,10 @@ app.post('/api/addtask', (req, res) => {
   manager.addingTask(req.body)
 });
 app.post('/api/loadtask', manager.displayingTask);
+
+app.post('/api/deletetask', (req, res) => {
+  manager.deletingTask(req.body)
+});
 
 
 

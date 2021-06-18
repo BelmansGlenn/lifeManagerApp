@@ -166,5 +166,22 @@ const addTask = (infos) => {
     
   }
   loadtask();
-// Take activies input end
+
+
+  const deleteTheTask = (info) => {
+    fetch('api/deletetask', {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(info),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    })
+  }
 

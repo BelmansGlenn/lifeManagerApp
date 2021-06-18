@@ -23,7 +23,10 @@ app.get('/planYourWeek',(req, res) => {
 
 
 // Create here your api setup
-
+app.post('/api/addtask', (req, res) => {
+  manager.addingTask(req.body)
+});
+app.post('/api/loadtask', manager.displayingTask);
 
 
 

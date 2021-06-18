@@ -34,49 +34,49 @@ const addingTask = (data) => {
       console.log('Connected to the movies database.');
     });
      db.serialize(() => {
-      db.each(`SELECT * FROM monday`, (err, row) => {
+      db.each(`SELECT * FROM monday where monday_id IS NOT NULL`, (err, row) => {
         if (err) {
           console.error(err.message);
         }
           sendData.allTaskMonday.push(row);
       });
 
-      db.each(`SELECT * FROM tuesday`, (err, row) => {
+      db.each(`SELECT * FROM tuesday where tuesday_id IS NOT NULL`, (err, row) => {
         if (err) {
           console.error(err.message);
         }
           sendData.allTaskTuesday.push(row);
       });
 
-      db.each(`SELECT * FROM wednesday`, (err, row) => {
+      db.each(`SELECT * FROM wednesday where wednesday_id IS NOT NULL`, (err, row) => {
         if (err) {
           console.error(err.message);
         }
           sendData.allTaskWednesday.push(row);
       });
 
-      db.each(`SELECT * FROM Thursday`, (err, row) => {
+      db.each(`SELECT * FROM thursday where thursday_id IS NOT NULL`, (err, row) => {
         if (err) {
           console.error(err.message);
         }
           sendData.allTaskThursday.push(row);
       });
 
-      db.each(`SELECT * FROM friday`, (err, row) => {
+      db.each(`SELECT * FROM friday where friday_id IS NOT NULL`, (err, row) => {
         if (err) {
           console.error(err.message);
         }
           sendData.allTaskFriday.push(row);
       });
 
-      db.each(`SELECT * FROM saturday`, (err, row) => {
+      db.each(`SELECT * FROM saturday where saturday_id IS NOT NULL `, (err, row) => {
         if (err) {
           console.error(err.message);
         }
           sendData.allTaskSaturday.push(row);
       });
 
-      db.each(`SELECT * FROM sunday`, (err, row) => {
+      db.each(`SELECT * FROM sunday where sunday_id IS NOT NULL `, (err, row) => {
         if (err) {
           console.error(err.message);
         }

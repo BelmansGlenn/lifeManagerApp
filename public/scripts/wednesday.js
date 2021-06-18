@@ -12,8 +12,7 @@ inputToDo.addEventListener('keypress', (e) => {
         alert("Write something")
     } else {
         if (e.key === 'Enter') {
-            let tableNameWeek = chooseDay.childNodes.innerHTML;
-            addTask({table: tableNameWeek, column: "todo", data:inputToDo.value});
+            addTask({table: chooseDay.innerHTML, column: "todo", data:inputToDo.value});
             let newTask = `<article class="inputDisplay"><p>${inputToDo.value}</p><i class="fas fa-times-circle redHover"></i></article>`
             taskInput[0].insertAdjacentHTML("beforeend", newTask)
             inputToDo.value = "" 
@@ -36,9 +35,8 @@ inputWorkout.addEventListener('keypress', (e) => {
         alert("Write something")
     } else {
         if (e.key === 'Enter') {
-            let tableNameWeek = chooseDay.childNodes.innerHTML;
-            addTask({table: tableNameWeek, column: "workout", data:inputWorkout.value});
-            let newTask = `<article class="inputDisplay "><p>${inputWorkout.value}</p><i class="fas fa-times-circle redHover"></i></article>`
+            addTask({table: chooseDay.innerHTML, column: "workout", data:inputWorkout.value});
+            let newTask = `<article class="inputDisplay"><p>${inputWorkout.value}</p><i class="fas fa-times-circle redHover"></i></article>`
             taskInput[1].insertAdjacentHTML("beforeend", newTask) 
             inputWorkout.value = ""
             // delete
@@ -59,8 +57,7 @@ inputMeal.addEventListener('keypress', (e) => {
         alert("Write something")
     } else {
         if (e.key === 'Enter') {
-            let tableNameWeek = chooseDay.childNodes.innerHTML;
-            addTask({table: tableNameWeek, column: "meal", data:inputMeal.value});
+            addTask({table: chooseDay.innerHTML, column: "meal", data:inputMeal.value});
             let newTask =  `<article class="inputDisplay"><p>${inputMeal.value}</p><i class="fas fa-times-circle redHover"></i></article>`
             taskInput[2].insertAdjacentHTML("beforeend", newTask)
             inputMeal.value = ""
@@ -82,9 +79,8 @@ inputBuy.addEventListener('keypress', (e) => {
         alert("Write something")
     } else {
         if (e.key === 'Enter') {
-            let tableNameWeek = chooseDay.childNodes.innerHTML;
-            addTask({table: tableNameWeek, column: "buy", data:inputBuy.value});
-            let newTask = `<article class="inputDisplay"><p>${inputBuy.value}</p><i class="fas fa-times-circle redHover"></i></article>`
+            addTask({table: chooseDay.innerHTML, column: "buy", data:inputBuy.value});
+            let newTask = `<article class="inputDisplay"><p>${inputBuy.value}</p><i class="fas fa-times-circle"></i></article>`
             taskInput[3].insertAdjacentHTML("beforeend", newTask)
             inputBuy.value = "" 
             // delete
@@ -101,7 +97,30 @@ inputBuy.addEventListener('keypress', (e) => {
 })
 
 const displayTask = (data) => {
-    console.log(data);
+  data.allTaskWednesday.forEach(el => {
+    if(el.todo != null){
+    let newTask = `<article class="inputDisplay"><p>${el.todo}</p><i class="fas fa-times-circle redHover"></i></article>`
+    taskInput[0].insertAdjacentHTML("beforeend", newTask)
+    }
+  });
+  data.allTaskWednesday.forEach(el => {
+    if(el.workout != null){
+    let newTask = `<article class="inputDisplay"><p>${el.workout}</p><i class="fas fa-times-circle redHover"></i></article>`
+    taskInput[1].insertAdjacentHTML("beforeend", newTask)
+    }
+  });
+  data.allTaskWednesday.forEach(el => {
+    if(el.meal != null){
+    let newTask = `<article class="inputDisplay"><p>${el.meal}</p><i class="fas fa-times-circle redHover"></i></article>`
+    taskInput[2].insertAdjacentHTML("beforeend", newTask)
+    }
+  });
+  data.allTaskWednesday.forEach(el => {
+    if(el.buy != null){
+    let newTask = `<article class="inputDisplay"><p>${el.buy}</p><i class="fas fa-times-circle redHover"></i></article>`
+    taskInput[3].insertAdjacentHTML("beforeend", newTask)
+    }
+  });
 }
 
 

@@ -39,43 +39,51 @@ chooseDay.insertAdjacentHTML("beforeend", theDay);
 // Take activies input
 // To Do
 inputToDo.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        
-        let newTask = `<article class="inputDisplay">${inputToDo.value}</article>`
-        taskInput[0].insertAdjacentHTML("beforeend", newTask)
-        inputToDo.value = "" 
-    }
+    if (e.key === 'Enter' && inputToDo.value == "") {
+        alert("Write something")
+    } else {
+        if (e.key === 'Enter') {
+            let newTask = `<article class="inputDisplay"><p>${inputToDo.value}</p><i class="fas fa-times-circle redHover"></i></article>`
+            taskInput[0].insertAdjacentHTML("beforeend", newTask)
+            inputToDo.value = "" 
+        }   
+    } 
 })
 // Workout 
 inputWorkout.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        let newTask = `<article class="inputDisplay">${inputWorkout.value}</article>`
-        taskInput[1].insertAdjacentHTML("beforeend", newTask) 
-        inputWorkout.value = "" 
-    }
+    if (e.key === 'Enter' && inputWorkout.value == "") {
+        alert("Write something")
+    } else {
+        if (e.key === 'Enter') {
+            let newTask = `<article class="inputDisplay"><p>${inputWorkout.value}</p><i class="fas fa-times-circle redHover"></i></article>`
+            taskInput[1].insertAdjacentHTML("beforeend", newTask) 
+            inputWorkout.value = ""
+        }   
+    } 
 })
 // Meal 
 inputMeal.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        let newTask = `<article class="inputDisplay">${inputMeal.value}</article>`
-        taskInput[2].insertAdjacentHTML("beforeend", newTask)
-        inputMeal.value = ""  
-    }
+    if (e.key === 'Enter' && inputMeal.value == "") {
+        alert("Write something")
+    } else {
+        if (e.key === 'Enter') {
+            let newTask =  `<article class="inputDisplay"><p>${inputMeal.value}</p><i class="fas fa-times-circle redHover"></i></article>`
+            taskInput[2].insertAdjacentHTML("beforeend", newTask)
+            inputMeal.value = ""  
+        }   
+    } 
 })
 // Buy 
 inputBuy.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        let newTask = `<article class="inputDisplay">${inputBuy.value}</article>`
-        taskInput[3].insertAdjacentHTML("beforeend", newTask)
-        inputBuy.value = ""  
-    }
+    if (e.key === 'Enter' && inputBuy.value == "") {
+        alert("Write something")
+    } else {
+        if (e.key === 'Enter') {
+            let newTask = `<article class="inputDisplay"><p>${inputBuy.value}</p><i class="fas fa-times-circle"></i></article>`
+            taskInput[3].insertAdjacentHTML("beforeend", newTask)
+            inputBuy.value = "" 
+        }   
+    } 
 })
 // Take activies input end
 
-
-
-var today = new Date();
-var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-var dateTime = date+' '+time;
-alert(dateTime)

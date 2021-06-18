@@ -30,13 +30,16 @@ inputToDo.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         let inputValue = inputToDo.value
         console.log(inputValue);
+        inputToDo.value="";
     }
+    
 })
 // Workout 
 inputWorkout.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         let inputValue = inputWorkout.value
         console.log(inputValue);
+        inputWorkout.value="";
     }
 })
 // Meal 
@@ -44,6 +47,7 @@ inputMeal.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         let inputValue = inputMeal.value
         console.log(inputValue);
+        inputMeal.value="";
     }
 })
 // Buy 
@@ -51,6 +55,7 @@ inputBuy.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         let inputValue = inputBuy.value
         console.log(inputValue);
+        inputBuy.value="";
     }
 })
 // Take activies input end

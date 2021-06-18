@@ -5,10 +5,6 @@ const sqlite3 = require('sqlite3').verbose();
 
 const addingTask = (data) => {
     let db = new sqlite3.Database('db/db.lifeappdatabase');
-    console.log(data.table);
-    console.log(data.column);
-    console.log(data.data);
-    
     
     db.run(`INSERT INTO ${data.table} (${data.column}) VALUES (?)`,[data.data], function(err) {
         if (err) {
@@ -95,7 +91,21 @@ const addingTask = (data) => {
   
   }
 
-
+  const deletingTask = (data) => {
+    let db = new sqlite3.Database('db/db.lifeappdatabase');
+    console.log(data)
+   
+    db.run(`delete from ${data.table} where ${data.column} = (?)`, [data.data], function(err) {
+        if (err) {
+          return console.log(err);
+        }
+    
+    });
+  
+    
+    db.close();
+  
+  }
 
 
 
@@ -110,3 +120,4 @@ const addingTask = (data) => {
 
 exports.addingTask = addingTask;
 exports.displayingTask = displayingTask;
+exports.deletingTask = deletingTask;

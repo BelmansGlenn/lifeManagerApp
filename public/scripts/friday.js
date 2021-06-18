@@ -21,7 +21,7 @@ inputToDo.addEventListener('keypress', (e) => {
             deleteBtn.forEach(element => {
                 element.addEventListener("click", (closeBtn) => {
                     let taskRemove = closeBtn.target.previousSibling
-                    deleteTheTask({table:chooseDay.innerHTML, column:workout, data:taskRemove.innerHTML})
+                    deleteTheTask({table:chooseDay.innerHTML, column:"todo", data:taskRemove.innerHTML})
                     taskRemove.parentNode.remove()
                     })
             });
@@ -44,7 +44,7 @@ inputWorkout.addEventListener('keypress', (e) => {
             deleteBtn.forEach(element => {
                 element.addEventListener("click", (closeBtn) => {
                     let taskRemove = closeBtn.target.previousSibling
-                    deleteTheTask({table:chooseDay.innerHTML, column:workout, data:taskRemove.innerHTML})
+                    deleteTheTask({table:chooseDay.innerHTML, column:"workout", data:taskRemove.innerHTML})
                     taskRemove.parentNode.remove()
                     })
             });
@@ -66,7 +66,7 @@ inputMeal.addEventListener('keypress', (e) => {
             deleteBtn.forEach(element => {
                 element.addEventListener("click", (closeBtn) => {
                     let taskRemove = closeBtn.target.previousSibling
-                    deleteTheTask({table:chooseDay.innerHTML, column:workout, data:taskRemove.innerHTML})
+                    deleteTheTask({table:chooseDay.innerHTML, column:"meal", data:taskRemove.innerHTML})
                     taskRemove.parentNode.remove()
                     })
             });              
@@ -88,7 +88,7 @@ inputBuy.addEventListener('keypress', (e) => {
             deleteBtn.forEach(element => {
                 element.addEventListener("click", (closeBtn) => {
                     let taskRemove = closeBtn.target.previousSibling
-                    deleteTheTask({table:chooseDay.innerHTML, column:workout, data:taskRemove.innerHTML})
+                    deleteTheTask({table:chooseDay.innerHTML, column:"buy", data:taskRemove.innerHTML})
                     taskRemove.parentNode.remove()
                     })
             }); 

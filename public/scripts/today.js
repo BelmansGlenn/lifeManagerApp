@@ -16,7 +16,17 @@ const getCurrentPlannedTask = () => {
 }
 getCurrentPlannedTask()
 // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-const displayToDoDB = (data) => {
+const updateBtnHtml = () => {
+    let uptBtn = document.querySelectorAll(".uptBtn")
+    uptBtn.forEach(element => {
+        element.addEventListener("click", (e) => {
+            e.target.style.backgroundColor = "#5ed7af"
+            e.target.style.boxShadow = "1px 0px 15px rgba(242, 244, 242, 0.25)"
+        });
+    })
+}
+// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+const displayAllDB = (data) => {
     if (actualDay === "Monday") {
         data.allTaskMonday.forEach(el => {
             if(el.todo != null){
@@ -24,6 +34,42 @@ const displayToDoDB = (data) => {
             <h1 class="activityName">To Do</h1>
                 <section class="boxTasks">
                     <p class="fontStyleTask">${el.todo}</p>
+                    <button class="uptBtn"></button>
+                </section>
+            </article>`
+            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
+            }
+        });
+        data.allTaskMonday.forEach(el => {
+            if(el.workout != null){
+            let newTaskDB = `<article class="dbTaskDisplay" id="#">
+            <h1 class="activityName">Workout</h1>
+                <section class="boxTasks">
+                    <p class="fontStyleTask">${el.workout}</p>
+                    <button class="uptBtn"></button>
+                </section>
+            </article>`
+            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
+            }
+        });
+        data.allTaskMonday.forEach(el => {
+            if(el.meal != null){
+            let newTaskDB = `<article class="dbTaskDisplay" id="#">
+            <h1 class="activityName">Meal</h1>
+                <section class="boxTasks">
+                    <p class="fontStyleTask">${el.meal}</p>
+                    <button class="uptBtn"></button>
+                </section>
+            </article>`
+            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
+            }
+        });
+        data.allTaskMonday.forEach(el => {
+            if(el.buy != null){
+            let newTaskDB = `<article class="dbTaskDisplay" id="#">
+            <h1 class="activityName">To Do</h1>
+                <section class="boxTasks">
+                    <p class="fontStyleTask">${el.buy}</p>
                     <button class="uptBtn"></button>
                 </section>
             </article>`
@@ -43,89 +89,6 @@ const displayToDoDB = (data) => {
             displayBox.insertAdjacentHTML("beforeend", newTaskDB)
             }
         });
-    } else if (actualDay === "Wednesday") {
-        data.allTaskWednesday.forEach(el => {
-            if(el.todo != null){
-            let newTaskDB = `<article class="dbTaskDisplay" id="#">
-            <h1 class="activityName">To Do</h1>
-                <section class="boxTasks">
-                    <p class="fontStyleTask">${el.todo}</p>
-                    <button class="uptBtn"></button>
-                </section>
-            </article>`
-            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
-            }
-        });
-    } else if (actualDay === "Thursday") {
-        data.allTaskThursday.forEach(el => {
-            if(el.todo != null){
-            let newTaskDB = `<article class="dbTaskDisplay" id="#">
-            <h1 class="activityName">To Do</h1>
-                <section class="boxTasks">
-                    <p class="fontStyleTask">${el.todo}</p>
-                    <button class="uptBtn"></button>
-                </section>
-            </article>`
-            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
-            }
-        });
-    } else if (actualDay === "Friday") {
-        data.allTaskFriday.forEach(el => {
-            if(el.todo != null){
-            let newTaskDB = `<article class="dbTaskDisplay" id="#">
-            <h1 class="activityName">To Do</h1>
-                <section class="boxTasks">
-                    <p class="fontStyleTask">${el.todo}</p>
-                    <button class="uptBtn"></button>
-                </section>
-            </article>`
-            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
-            }
-        });
-    } else if (actualDay === "Saturday") {
-        data.allTaskSaturday.forEach(el => {
-            if(el.todo != null){
-            let newTaskDB = `<article class="dbTaskDisplay" id="#">
-            <h1 class="activityName">To Do</h1>
-                <section class="boxTasks">
-                    <p class="fontStyleTask">${el.todo}</p>
-                    <button class="uptBtn"></button>
-                </section>
-            </article>`
-            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
-            }
-        });
-    } else if (actualDay === "Sunday") {
-        data.allTaskSunday.forEach(el => {
-            if(el.todo != null){
-            let newTaskDB = `<article class="dbTaskDisplay" id="#">
-            <h1 class="activityName">To Do</h1>
-                <section class="boxTasks">
-                    <p class="fontStyleTask">${el.todo}</p>
-                    <button class="uptBtn"></button>
-                </section>
-            </article>`
-            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
-            }
-        });
-    }
-}
-
-const displayWorkoutDB = (data) => {
-    if (actualDay === "Monday") {
-        data.allTaskMonday.forEach(el => {
-            if(el.workout != null){
-            let newTaskDB = `<article class="dbTaskDisplay" id="#">
-            <h1 class="activityName">Workout</h1>
-                <section class="boxTasks">
-                    <p class="fontStyleTask">${el.workout}</p>
-                    <button class="uptBtn"></button>
-                </section>
-            </article>`
-            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
-            }
-        });
-    } else if (actualDay === "Tuesday") {
         data.allTaskTuesday.forEach(el => {
             if(el.workout != null){
             let newTaskDB = `<article class="dbTaskDisplay" id="#">
@@ -138,77 +101,7 @@ const displayWorkoutDB = (data) => {
             displayBox.insertAdjacentHTML("beforeend", newTaskDB)
             }
         });
-    } else if (actualDay === "Wednesday") {
-        data.allTaskWednesday.forEach(el => {
-            if(el.workout != null){
-            let newTaskDB = `<article class="dbTaskDisplay" id="#">
-            <h1 class="activityName">Workout</h1>
-                <section class="boxTasks">
-                    <p class="fontStyleTask">${el.workout}</p>
-                    <button class="uptBtn"></button>
-                </section>
-            </article>`
-            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
-            }
-        });
-    } else if (actualDay === "Thursday") {
-        data.allTaskThursday.forEach(el => {
-            if(el.workout != null){
-            let newTaskDB = `<article class="dbTaskDisplay" id="#">
-            <h1 class="activityName">Workout</h1>
-                <section class="boxTasks">
-                    <p class="fontStyleTask">${el.workout}</p>
-                    <button class="uptBtn"></button>
-                </section>
-            </article>`
-            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
-            }
-        });
-    } else if (actualDay === "Friday") {
-        data.allTaskFriday.forEach(el => {
-            if(el.workout != null){
-            let newTaskDB = `<article class="dbTaskDisplay" id="#">
-            <h1 class="activityName">Workout</h1>
-                <section class="boxTasks">
-                    <p class="fontStyleTask">${el.workout}</p>
-                    <button class="uptBtn"></button>
-                </section>
-            </article>`
-            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
-            }
-        });
-    } else if (actualDay === "Saturday") {
-        data.allTaskSaturday.forEach(el => {
-            if(el.workout != null){
-            let newTaskDB = `<article class="dbTaskDisplay" id="#">
-            <h1 class="activityName">Workout</h1>
-                <section class="boxTasks">
-                    <p class="fontStyleTask">${el.workout}</p>
-                    <button class="uptBtn"></button>
-                </section>
-            </article>`
-            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
-            }
-        });
-    } else if (actualDay === "Sunday") {
-        data.allTaskSunday.forEach(el => {
-            if(el.workout != null){
-            let newTaskDB = `<article class="dbTaskDisplay" id="#">
-            <h1 class="activityName">Workout</h1>
-                <section class="boxTasks">
-                    <p class="fontStyleTask">${el.workout}</p>
-                    <button class="uptBtn"></button>
-                </section>
-            </article>`
-            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
-            }
-        });
-    }
-}
-
-const displayMealDB = (data) => {
-    if (actualDay === "Monday") {
-        data.allTaskMonday.forEach(el => {
+        data.allTaskTusday.forEach(el => {
             if(el.meal != null){
             let newTaskDB = `<article class="dbTaskDisplay" id="#">
             <h1 class="activityName">Meal</h1>
@@ -220,102 +113,6 @@ const displayMealDB = (data) => {
             displayBox.insertAdjacentHTML("beforeend", newTaskDB)
             }
         });
-    } else if (actualDay === "Tuesday") {
-        data.allTaskTuesday.forEach(el => {
-            if(el.meal != null){
-            let newTaskDB = `<article class="dbTaskDisplay" id="#">
-            <h1 class="activityName">Meal</h1>
-                <section class="boxTasks">
-                    <p class="fontStyleTask">${el.meal}</p>
-                    <button class="uptBtn"></button>
-                </section>
-            </article>`
-            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
-            }
-        });
-    } else if (actualDay === "Wednesday") {
-        data.allTaskWednesday.forEach(el => {
-            if(el.meal != null){
-            let newTaskDB = `<article class="dbTaskDisplay" id="#">
-            <h1 class="activityName">Meal</h1>
-                <section class="boxTasks">
-                    <p class="fontStyleTask">${el.meal}</p>
-                    <button class="uptBtn"></button>
-                </section>
-            </article>`
-            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
-            }
-        });
-    } else if (actualDay === "Thursday") {
-        data.allTaskThursday.forEach(el => {
-            if(el.meal != null){
-            let newTaskDB = `<article class="dbTaskDisplay" id="#">
-            <h1 class="activityName">Meal</h1>
-                <section class="boxTasks">
-                    <p class="fontStyleTask">${el.meal}</p>
-                    <button class="uptBtn"></button>
-                </section>
-            </article>`
-            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
-            }
-        });
-    } else if (actualDay === "Friday") {
-        data.allTaskFriday.forEach(el => {
-            if(el.meal != null){
-            let newTaskDB = `<article class="dbTaskDisplay" id="#">
-            <h1 class="activityName">Meal</h1>
-                <section class="boxTasks">
-                    <p class="fontStyleTask">${el.meal}</p>
-                    <button class="uptBtn"></button>
-                </section>
-            </article>`
-            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
-            }
-        });
-    } else if (actualDay === "Saturday") {
-        data.allTaskSaturday.forEach(el => {
-            if(el.meal != null){
-            let newTaskDB = `<article class="dbTaskDisplay" id="#">
-            <h1 class="activityName">Meal</h1>
-                <section class="boxTasks">
-                    <p class="fontStyleTask">${el.meal}</p>
-                    <button class="uptBtn"></button>
-                </section>
-            </article>`
-            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
-            }
-        });
-    } else if (actualDay === "Sunday") {
-        data.allTaskSunday.forEach(el => {
-            if(el.meal != null){
-            let newTaskDB = `<article class="dbTaskDisplay" id="#">
-            <h1 class="activityName">Meal</h1>
-                <section class="boxTasks">
-                    <p class="fontStyleTask">${el.meal}</p>
-                    <button class="uptBtn"></button>
-                </section>
-            </article>`
-            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
-            }
-        });
-    }
-}
-
-const displayBuyDB = (data) => {
-    if (actualDay === "Monday") {
-        data.allTaskMonday.forEach(el => {
-            if(el.buy != null){
-            let newTaskDB = `<article class="dbTaskDisplay" id="#">
-            <h1 class="activityName">Buy</h1>
-                <section class="boxTasks">
-                    <p class="fontStyleTask">${el.buy}</p>
-                    <button class="uptBtn"></button>
-                </section>
-            </article>`
-            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
-            }
-        });
-    } else if (actualDay === "Tuesday") {
         data.allTaskTuesday.forEach(el => {
             if(el.buy != null){
             let newTaskDB = `<article class="dbTaskDisplay" id="#">
@@ -330,6 +127,42 @@ const displayBuyDB = (data) => {
         });
     } else if (actualDay === "Wednesday") {
         data.allTaskWednesday.forEach(el => {
+            if(el.todo != null){
+            let newTaskDB = `<article class="dbTaskDisplay" id="#">
+            <h1 class="activityName">To Do</h1>
+                <section class="boxTasks">
+                    <p class="fontStyleTask">${el.todo}</p>
+                    <button class="uptBtn"></button>
+                </section>
+            </article>`
+            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
+            }
+        });
+        data.allTaskWednesday.forEach(el => {
+            if(el.workout != null){
+            let newTaskDB = `<article class="dbTaskDisplay" id="#">
+            <h1 class="activityName">Workout</h1>
+                <section class="boxTasks">
+                    <p class="fontStyleTask">${el.workout}</p>
+                    <button class="uptBtn"></button>
+                </section>
+            </article>`
+            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
+            }
+        });
+        data.allTaskWednesday.forEach(el => {
+            if(el.meal != null){
+            let newTaskDB = `<article class="dbTaskDisplay" id="#">
+            <h1 class="activityName">Meal</h1>
+                <section class="boxTasks">
+                    <p class="fontStyleTask">${el.meal}</p>
+                    <button class="uptBtn"></button>
+                </section>
+            </article>`
+            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
+            }
+        });
+        data.allTaskWednesday.forEach(el => {
             if(el.buy != null){
             let newTaskDB = `<article class="dbTaskDisplay" id="#">
             <h1 class="activityName">Buy</h1>
@@ -342,6 +175,42 @@ const displayBuyDB = (data) => {
             }
         });
     } else if (actualDay === "Thursday") {
+        data.allTaskThursday.forEach(el => {
+            if(el.todo != null){
+            let newTaskDB = `<article class="dbTaskDisplay" id="#">
+            <h1 class="activityName">To Do</h1>
+                <section class="boxTasks">
+                    <p class="fontStyleTask">${el.todo}</p>
+                    <button class="uptBtn"></button>
+                </section>
+            </article>`
+            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
+            }
+        });
+        data.allTaskThursday.forEach(el => {
+            if(el.workout != null){
+            let newTaskDB = `<article class="dbTaskDisplay" id="#">
+            <h1 class="activityName">Workout</h1>
+                <section class="boxTasks">
+                    <p class="fontStyleTask">${el.workout}</p>
+                    <button class="uptBtn"></button>
+                </section>
+            </article>`
+            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
+            }
+        });
+        data.allTaskThursday.forEach(el => {
+            if(el.meal != null){
+            let newTaskDB = `<article class="dbTaskDisplay" id="#">
+            <h1 class="activityName">Meal</h1>
+                <section class="boxTasks">
+                    <p class="fontStyleTask">${el.meal}</p>
+                    <button class="uptBtn"></button>
+                </section>
+            </article>`
+            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
+            }
+        });
         data.allTaskThursday.forEach(el => {
             if(el.buy != null){
             let newTaskDB = `<article class="dbTaskDisplay" id="#">
@@ -356,6 +225,42 @@ const displayBuyDB = (data) => {
         });
     } else if (actualDay === "Friday") {
         data.allTaskFriday.forEach(el => {
+            if(el.todo != null){
+            let newTaskDB = `<article class="dbTaskDisplay" id="#">
+            <h1 class="activityName">To Do</h1>
+                <section class="boxTasks">
+                    <p class="fontStyleTask">${el.todo}</p>
+                    <button class="uptBtn"></button>
+                </section>
+            </article>`
+            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
+            }
+        });
+        data.allTaskFriday.forEach(el => {
+            if(el.workout != null){
+            let newTaskDB = `<article class="dbTaskDisplay" id="#">
+            <h1 class="activityName">Workout</h1>
+                <section class="boxTasks">
+                    <p class="fontStyleTask">${el.workout}</p>
+                    <button class="uptBtn"></button>
+                </section>
+            </article>`
+            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
+            }
+        });
+        data.allTaskFriday.forEach(el => {
+            if(el.meal != null){
+            let newTaskDB = `<article class="dbTaskDisplay" id="#">
+            <h1 class="activityName">Meal</h1>
+                <section class="boxTasks">
+                    <p class="fontStyleTask">${el.meal}</p>
+                    <button class="uptBtn"></button>
+                </section>
+            </article>`
+            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
+            }
+        });
+        data.allTaskFriday.forEach(el => {
             if(el.buy != null){
             let newTaskDB = `<article class="dbTaskDisplay" id="#">
             <h1 class="activityName">Buy</h1>
@@ -368,6 +273,42 @@ const displayBuyDB = (data) => {
             }
         });
     } else if (actualDay === "Saturday") {
+        data.allTaskSaturday.forEach(el => {
+            if(el.todo != null){
+            let newTaskDB = `<article class="dbTaskDisplay" id="#">
+            <h1 class="activityName">To Do</h1>
+                <section class="boxTasks">
+                    <p class="fontStyleTask">${el.todo}</p>
+                    <button class="uptBtn"></button>
+                </section>
+            </article>`
+            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
+            }
+        });
+        data.allTaskSaturday.forEach(el => {
+            if(el.workout != null){
+            let newTaskDB = `<article class="dbTaskDisplay" id="#">
+            <h1 class="activityName">Workout</h1>
+                <section class="boxTasks">
+                    <p class="fontStyleTask">${el.workout}</p>
+                    <button class="uptBtn"></button>
+                </section>
+            </article>`
+            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
+            }
+        });
+        data.allTaskSaturday.forEach(el => {
+            if(el.meal != null){
+            let newTaskDB = `<article class="dbTaskDisplay" id="#">
+            <h1 class="activityName">Meal</h1>
+                <section class="boxTasks">
+                    <p class="fontStyleTask">${el.meal}</p>
+                    <button class="uptBtn"></button>
+                </section>
+            </article>`
+            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
+            }
+        });
         data.allTaskSaturday.forEach(el => {
             if(el.buy != null){
             let newTaskDB = `<article class="dbTaskDisplay" id="#">
@@ -382,6 +323,45 @@ const displayBuyDB = (data) => {
         });
     } else if (actualDay === "Sunday") {
         data.allTaskSunday.forEach(el => {
+            if(el.todo != null){
+            let newTaskDB = `<article class="dbTaskDisplay" id="#">
+            <h1 class="activityName">To Do</h1>
+                <section class="boxTasks">
+                    <p class="fontStyleTask">${el.todo}</p>
+                    <button class="uptBtn"></button>
+                </section>
+            </article>`
+            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
+            updateBtnHtml()
+            }
+        });
+        data.allTaskSunday.forEach(el => {
+            if(el.workout != null){
+            let newTaskDB = `<article class="dbTaskDisplay" id="#">
+            <h1 class="activityName">Workout</h1>
+                <section class="boxTasks">
+                    <p class="fontStyleTask">${el.workout}</p>
+                    <button class="uptBtn"></button>
+                </section>
+            </article>`
+            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
+            updateBtnHtml()
+            }
+        });
+        data.allTaskSunday.forEach(el => {
+            if(el.meal != null){
+            let newTaskDB = `<article class="dbTaskDisplay" id="#">
+            <h1 class="activityName">Meal</h1>
+                <section class="boxTasks">
+                    <p class="fontStyleTask">${el.meal}</p>
+                    <button class="uptBtn"></button>
+                </section>
+            </article>`
+            displayBox.insertAdjacentHTML("beforeend", newTaskDB)
+            updateBtnHtml()
+            }
+        });
+        data.allTaskSunday.forEach(el => {
             if(el.buy != null){
             let newTaskDB = `<article class="dbTaskDisplay" id="#">
             <h1 class="activityName">Buy</h1>
@@ -391,11 +371,11 @@ const displayBuyDB = (data) => {
                 </section>
             </article>`
             displayBox.insertAdjacentHTML("beforeend", newTaskDB)
+            updateBtnHtml()
             }
         });
     }
 }
-
 // fetch copy/pasted, could be store in a "usefull" js files, 
 // to have less code.
 const loadtask = () => {
@@ -408,16 +388,12 @@ const loadtask = () => {
     .then(response => response.json())
     .then(data => {
       console.log('Success:', data);
-      displayToDoDB(data);
-      displayWorkoutDB(data);
-      displayMealDB(data)
-      displayBuyDB(data)
+      displayAllDB(data);
     })
     .catch((error) => {
       console.error('Error:', error);
     });
-    
-  }
-  loadtask();
+}
+loadtask();
 
   

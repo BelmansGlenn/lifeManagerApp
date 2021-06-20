@@ -24,10 +24,15 @@ console.log(actualDay);
 
 // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 const displayAllDB = (data) => {
+        let i = 0;
+        let j = 0;
+        let k = 0;
+        let l = 0;
     if (actualDay === "Monday") {
+        
         data.allTaskMonday.forEach(el => {
             if(el.todo != null){
-            let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.todo}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.monday_id}"></button></section>`
+            let newTaskDB = `<section class="boxTasks" id="${i}"><p class="fontStyleTask">${el.todo}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.monday_id}"></button></section>`
             activityName[0].insertAdjacentHTML("beforeend", newTaskDB)
             const listId = document.getElementById(`${i}`)
             listId.addEventListener('click', (el) =>{
@@ -44,9 +49,9 @@ const displayAllDB = (data) => {
         });
         data.allTaskMonday.forEach(el => {
             if(el.workout != null){
-                let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.workout}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.monday_id}"></button></section>`
+                let newTaskDB = `<section class="boxTasks" id="${j}"><p class="fontStyleTask">${el.workout}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.monday_id}"></button></section>`
                 activityName[1].insertAdjacentHTML("beforeend", newTaskDB)
-                const listId = document.getElementById(`${i}`)
+                const listId = document.getElementById(`${j}`)
                 listId.addEventListener('click', (el) =>{
                     listId.lastChild.classList.toggle('done-1');
                     console.log(listId.lastChild.dataset.done);
@@ -61,9 +66,9 @@ const displayAllDB = (data) => {
         });
         data.allTaskMonday.forEach(el => {
             if(el.meal != null){
-                let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.meal}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.monday_id}"></button></section>`
+                let newTaskDB = `<section class="boxTasks" id="${k}"><p class="fontStyleTask">${el.meal}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.monday_id}"></button></section>`
                 activityName[2].insertAdjacentHTML("beforeend", newTaskDB)
-                const listId = document.getElementById(`${i}`)
+                const listId = document.getElementById(`${k}`)
                 listId.addEventListener('click', (el) =>{
                     listId.lastChild.classList.toggle('done-1');
                     console.log(listId.lastChild.dataset.done);
@@ -78,9 +83,9 @@ const displayAllDB = (data) => {
         });
         data.allTaskMonday.forEach(el => {
             if(el.buy != null){
-                let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.buy}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.monday_id}"></button></section>`
+                let newTaskDB = `<section class="boxTasks" id="${l}"><p class="fontStyleTask">${el.buy}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.monday_id}"></button></section>`
                 activityName[3].insertAdjacentHTML("beforeend", newTaskDB)
-                const listId = document.getElementById(`${i}`)
+                const listId = document.getElementById(`${l}`)
                 listId.addEventListener('click', (el) =>{
                     listId.lastChild.classList.toggle('done-1');
                     console.log(listId.lastChild.dataset.done);
@@ -98,7 +103,7 @@ const displayAllDB = (data) => {
     } else if (actualDay === "Tuesday") {
         data.allTaskTuesday.forEach(el => {
             if(el.todo != null){
-            let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.todo}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.tuesday_id}"></button></section>`
+            let newTaskDB = `<section class="boxTasks" id="${i}"><p class="fontStyleTask">${el.todo}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.tuesday_id}"></button></section>`
             activityName[0].insertAdjacentHTML("beforeend", newTaskDB)
             const listId = document.getElementById(`${i}`)
             listId.addEventListener('click', (el) =>{
@@ -115,9 +120,9 @@ const displayAllDB = (data) => {
         });
         data.allTaskTuesday.forEach(el => {
             if(el.workout != null){
-                let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.workout}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.tuesday_id}"></button></section>`
+                let newTaskDB = `<section class="boxTasks" id="${j}"><p class="fontStyleTask">${el.workout}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.tuesday_id}"></button></section>`
                 activityName[1].insertAdjacentHTML("beforeend", newTaskDB)
-                const listId = document.getElementById(`${i}`)
+                const listId = document.getElementById(`${j}`)
                 listId.addEventListener('click', (el) =>{
                     listId.lastChild.classList.toggle('done-1');
                     console.log(listId.lastChild.dataset.done);
@@ -132,9 +137,9 @@ const displayAllDB = (data) => {
         });
         data.allTaskTuesday.forEach(el => {
             if(el.meal != null){
-                let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.meal}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.tuesday_id}"></button></section>`
+                let newTaskDB = `<section class="boxTasks" id="${k}"><p class="fontStyleTask">${el.meal}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.tuesday_id}"></button></section>`
                 activityName[2].insertAdjacentHTML("beforeend", newTaskDB)
-                const listId = document.getElementById(`${i}`)
+                const listId = document.getElementById(`${k}`)
                 listId.addEventListener('click', (el) =>{
                     listId.lastChild.classList.toggle('done-1');
                     console.log(listId.lastChild.dataset.done);
@@ -149,9 +154,9 @@ const displayAllDB = (data) => {
         });
         data.allTaskTuesday.forEach(el => {
             if(el.buy != null){
-                let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.buy}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.tuesday_id}"></button></section>`
+                let newTaskDB = `<section class="boxTasks" id="${l}"><p class="fontStyleTask">${el.buy}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.tuesday_id}"></button></section>`
                 activityName[3].insertAdjacentHTML("beforeend", newTaskDB)
-                const listId = document.getElementById(`${i}`)
+                const listId = document.getElementById(`${l}`)
                 listId.addEventListener('click', (el) =>{
                     listId.lastChild.classList.toggle('done-1');
                     console.log(listId.lastChild.dataset.done);
@@ -167,7 +172,7 @@ const displayAllDB = (data) => {
     } else if (actualDay === "Wednesday") {
         data.allTaskWednesday.forEach(el => {
             if(el.todo != null){
-            let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.todo}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.wednesday_id}"></button></section>`
+            let newTaskDB = `<section class="boxTasks" id="${i}"><p class="fontStyleTask">${el.todo}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.wednesday_id}"></button></section>`
             activityName[0].insertAdjacentHTML("beforeend", newTaskDB)
             const listId = document.getElementById(`${i}`)
             listId.addEventListener('click', (el) =>{
@@ -184,9 +189,9 @@ const displayAllDB = (data) => {
         });
         data.allTaskWednesday.forEach(el => {
             if(el.workout != null){
-                let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.workout}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.wednesday_id}"></button></section>`
+                let newTaskDB = `<section class="boxTasks" id="${j}"><p class="fontStyleTask">${el.workout}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.wednesday_id}"></button></section>`
                 activityName[1].insertAdjacentHTML("beforeend", newTaskDB)
-                const listId = document.getElementById(`${i}`)
+                const listId = document.getElementById(`${j}`)
                 listId.addEventListener('click', (el) =>{
                     listId.lastChild.classList.toggle('done-1');
                     console.log(listId.lastChild.dataset.done);
@@ -218,9 +223,9 @@ const displayAllDB = (data) => {
         });
         data.allTaskWednesday.forEach(el => {
             if(el.buy != null){
-                let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.buy}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.wednesday_id}"></button></section>`
+                let newTaskDB = `<section class="boxTasks" id="${k}"><p class="fontStyleTask">${el.buy}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.wednesday_id}"></button></section>`
                 activityName[3].insertAdjacentHTML("beforeend", newTaskDB)
-                const listId = document.getElementById(`${i}`)
+                const listId = document.getElementById(`${k}`)
                 listId.addEventListener('click', (el) =>{
                     listId.lastChild.classList.toggle('done-1');
                     console.log(listId.lastChild.dataset.done);
@@ -236,7 +241,7 @@ const displayAllDB = (data) => {
     } else if (actualDay === "Thursday") {
         data.allTaskThursday.forEach(el => {
             if(el.todo != null){
-            let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.todo}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.thursday_id}"></button></section>`
+            let newTaskDB = `<section class="boxTasks" id="${i}"><p class="fontStyleTask">${el.todo}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.thursday_id}"></button></section>`
             activityName[0].insertAdjacentHTML("beforeend", newTaskDB)
             const listId = document.getElementById(`${i}`)
             listId.addEventListener('click', (el) =>{
@@ -253,9 +258,9 @@ const displayAllDB = (data) => {
         });
         data.allTaskThursday.forEach(el => {
             if(el.workout != null){
-                let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.workout}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.thursday_id}"></button></section>`
+                let newTaskDB = `<section class="boxTasks" id="${j}"><p class="fontStyleTask">${el.workout}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.thursday_id}"></button></section>`
                 activityName[1].insertAdjacentHTML("beforeend", newTaskDB)
-                const listId = document.getElementById(`${i}`)
+                const listId = document.getElementById(`${j}`)
                 listId.addEventListener('click', (el) =>{
                     listId.lastChild.classList.toggle('done-1');
                     console.log(listId.lastChild.dataset.done);
@@ -270,9 +275,9 @@ const displayAllDB = (data) => {
         });
         data.allTaskThursday.forEach(el => {
             if(el.meal != null){
-                let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.meal}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.thursday_id}"></button></section>`
+                let newTaskDB = `<section class="boxTasks" id="${k}"><p class="fontStyleTask">${el.meal}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.thursday_id}"></button></section>`
                 activityName[2].insertAdjacentHTML("beforeend", newTaskDB)
-                const listId = document.getElementById(`${i}`)
+                const listId = document.getElementById(`${k}`)
                 listId.addEventListener('click', (el) =>{
                     listId.lastChild.classList.toggle('done-1');
                     console.log(listId.lastChild.dataset.done);
@@ -287,9 +292,9 @@ const displayAllDB = (data) => {
         });
         data.allTaskThursday.forEach(el => {
             if(el.buy != null){
-                let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.buy}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.thursday_id}"></button></section>`
+                let newTaskDB = `<section class="boxTasks" id="${l}"><p class="fontStyleTask">${el.buy}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.thursday_id}"></button></section>`
                 activityName[3].insertAdjacentHTML("beforeend", newTaskDB)
-                const listId = document.getElementById(`${i}`)
+                const listId = document.getElementById(`${l}`)
                 listId.addEventListener('click', (el) =>{
                     listId.lastChild.classList.toggle('done-1');
                     console.log(listId.lastChild.dataset.done);
@@ -305,7 +310,7 @@ const displayAllDB = (data) => {
     } else if (actualDay === "Friday") {
         data.allTaskFriday.forEach(el => {
             if(el.todo != null){
-            let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.todo}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.thursday_id}"></button></section>`
+            let newTaskDB = `<section class="boxTasks" id="${i}"><p class="fontStyleTask">${el.todo}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.thursday_id}"></button></section>`
             activityName[0].insertAdjacentHTML("beforeend", newTaskDB)
             const listId = document.getElementById(`${i}`)
             listId.addEventListener('click', (el) =>{
@@ -322,9 +327,9 @@ const displayAllDB = (data) => {
         });
         data.allTaskFriday.forEach(el => {
             if(el.workout != null){
-                let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.workout}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.friday_id}"></button></section>`
+                let newTaskDB = `<section class="boxTasks" id="${j}"><p class="fontStyleTask">${el.workout}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.friday_id}"></button></section>`
                 activityName[1].insertAdjacentHTML("beforeend", newTaskDB)
-                const listId = document.getElementById(`${i}`)
+                const listId = document.getElementById(`${j}`)
                 listId.addEventListener('click', (el) =>{
                     listId.lastChild.classList.toggle('done-1');
                     console.log(listId.lastChild.dataset.done);
@@ -339,9 +344,9 @@ const displayAllDB = (data) => {
         });
         data.allTaskFriday.forEach(el => {
             if(el.meal != null){
-                let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.meal}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.friday_id}"></button></section>`
+                let newTaskDB = `<section class="boxTasks" id="${k}"><p class="fontStyleTask">${el.meal}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.friday_id}"></button></section>`
                 activityName[2].insertAdjacentHTML("beforeend", newTaskDB)
-                const listId = document.getElementById(`${i}`)
+                const listId = document.getElementById(`${k}`)
                 listId.addEventListener('click', (el) =>{
                     listId.lastChild.classList.toggle('done-1');
                     console.log(listId.lastChild.dataset.done);
@@ -356,9 +361,9 @@ const displayAllDB = (data) => {
         });
         data.allTaskFriday.forEach(el => {
             if(el.buy != null){
-                let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.buy}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.friday_id}"></button></section>`
+                let newTaskDB = `<section class="boxTasks" id="${l}"><p class="fontStyleTask">${el.buy}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.friday_id}"></button></section>`
                 activityName[3].insertAdjacentHTML("beforeend", newTaskDB)
-                const listId = document.getElementById(`${i}`)
+                const listId = document.getElementById(`${l}`)
                 listId.addEventListener('click', (el) =>{
                     listId.lastChild.classList.toggle('done-1');
                     console.log(listId.lastChild.dataset.done);
@@ -374,7 +379,7 @@ const displayAllDB = (data) => {
     } else if (actualDay === "Saturday") {
         data.allTaskSaturday.forEach(el => {
             if(el.todo != null){
-            let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.todo}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.saturday_id}"></button></section>`
+            let newTaskDB = `<section class="boxTasks" id="${i}"><p class="fontStyleTask">${el.todo}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.saturday_id}"></button></section>`
             activityName[0].insertAdjacentHTML("beforeend", newTaskDB)
             const listId = document.getElementById(`${i}`)
             listId.addEventListener('click', (el) =>{
@@ -391,9 +396,9 @@ const displayAllDB = (data) => {
         });
         data.allTaskSaturday.forEach(el => {
             if(el.workout != null){
-                let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.workout}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.saturday_id}"></button></section>`
+                let newTaskDB = `<section class="boxTasks" id="${j}"><p class="fontStyleTask">${el.workout}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.saturday_id}"></button></section>`
                 activityName[1].insertAdjacentHTML("beforeend", newTaskDB)
-                const listId = document.getElementById(`${i}`)
+                const listId = document.getElementById(`${j}`)
                 listId.addEventListener('click', (el) =>{
                     listId.lastChild.classList.toggle('done-1');
                     console.log(listId.lastChild.dataset.done);
@@ -408,9 +413,9 @@ const displayAllDB = (data) => {
         });
         data.allTaskSaturday.forEach(el => {
             if(el.meal != null){
-                let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.meal}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.saturday_id}"></button></section>`
+                let newTaskDB = `<section class="boxTasks" id="${k}"><p class="fontStyleTask">${el.meal}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.saturday_id}"></button></section>`
                 activityName[2].insertAdjacentHTML("beforeend", newTaskDB)
-                const listId = document.getElementById(`${i}`)
+                const listId = document.getElementById(`${k}`)
                 listId.addEventListener('click', (el) =>{
                     listId.lastChild.classList.toggle('done-1');
                     console.log(listId.lastChild.dataset.done);
@@ -425,9 +430,9 @@ const displayAllDB = (data) => {
         });
         data.allTaskSaturday.forEach(el => {
             if(el.buy != null){
-                let newTaskDB = `<section class="boxTasks"><p class="fontStyleTask">${el.buy}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.saturday_id}"></button></section>`
+                let newTaskDB = `<section class="boxTasks" id="${l}"><p class="fontStyleTask">${el.buy}</p><button class="uptBtn done-${el.done}" data-done="${el.done}" data-id="${el.saturday_id}"></button></section>`
                 activityName[3].insertAdjacentHTML("beforeend", newTaskDB)
-                const listId = document.getElementById(`${i}`)
+                const listId = document.getElementById(`${l}`)
                 listId.addEventListener('click', (el) =>{
                 listId.lastChild.classList.toggle('done-1');
                 console.log(listId.lastChild.dataset.done);
@@ -441,10 +446,6 @@ const displayAllDB = (data) => {
             }
         });
     } else if (actualDay === "Sunday") {
-        let i = 0;
-        let j = 0;
-        let k = 0;
-        let l = 0;
         data.allTaskSunday.forEach(el => {
             i++;
             if(el.todo != null){

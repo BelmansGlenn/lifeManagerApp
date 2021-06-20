@@ -113,8 +113,8 @@ const displayTask = (data) => {
     let newTask = `<li class="inputDisplay"><p>${el.todo}</p><i class="fas fa-times-circle redHover"></i></li>`
     taskInput[0].insertAdjacentHTML("beforeend", newTask)
     // sortable
-    const sortTask = document.getElementById("toDoInput")
-    const sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag'})
+    let sortTask = document.getElementById("toDoInput")
+    let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag'})
     }
   });
   data.allTaskWednesday.forEach(el => {

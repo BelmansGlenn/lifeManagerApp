@@ -5,23 +5,25 @@ const inputWorkout = document.getElementById("workout");
 const inputMeal = document.getElementById("meal");
 const inputBuy = document.getElementById("buy");
 const taskInput = document.querySelectorAll(".taskInput")
-
-
+// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 inputToDo.addEventListener('keypress', (e) => {
     if (e.key === 'Enter' && inputToDo.value == "") {
         alert("Write something")
     } else {
         if (e.key === 'Enter') {
             addTask({table: chooseDay.innerHTML, column: "todo", data:inputToDo.value});
-            let newTask = `<article class="inputDisplay"><p>${inputToDo.value}</p><i class="fas fa-times-circle redHover"></i></article>`
+            let newTask = `<li class="inputDisplay"><p>${inputToDo.value}</p><i class="fas fa-times-circle redHover"></i></li>`
             taskInput[0].insertAdjacentHTML("beforeend", newTask)
-            inputToDo.value = "" 
+            inputToDo.value = ""
+            // sortable
+            let sortTask = document.getElementById("toDoInput")
+            let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag'})
             // delete
             let deleteBtn = document.querySelectorAll(".redHover")
             deleteBtn.forEach(element => {
                 element.addEventListener("click", (closeBtn) => {
                     let taskRemove = closeBtn.target.previousSibling
-                    deleteTheTask({table:chooseDay.innerHTML, column:workout, data:taskRemove.innerHTML})
+                    deleteTheTask({table:chooseDay.innerHTML, column: "todo", data:taskRemove.innerHTML})
                     taskRemove.parentNode.remove()
                     })
             });
@@ -36,9 +38,12 @@ inputWorkout.addEventListener('keypress', (e) => {
     } else {
         if (e.key === 'Enter') {
             addTask({table: chooseDay.innerHTML, column: "workout", data:inputWorkout.value});
-            let newTask = `<article class="inputDisplay"><p>${inputWorkout.value}</p><i class="fas fa-times-circle redHover"></i></article>`
+            let newTask = `<li class="inputDisplay"><p>${inputWorkout.value}</p><i class="fas fa-times-circle redHover"></i></li>`
             taskInput[1].insertAdjacentHTML("beforeend", newTask) 
             inputWorkout.value = ""
+            // sortable
+            let sortTask = document.getElementById("workoutInput")
+            let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag'})
             // delete
             let deleteBtn = document.querySelectorAll(".redHover")
             deleteBtn.forEach(element => {
@@ -58,9 +63,12 @@ inputMeal.addEventListener('keypress', (e) => {
     } else {
         if (e.key === 'Enter') {
             addTask({table: chooseDay.innerHTML, column: "meal", data:inputMeal.value});
-            let newTask =  `<article class="inputDisplay"><p>${inputMeal.value}</p><i class="fas fa-times-circle redHover"></i></article>`
+            let newTask =  `<li class="inputDisplay"><p>${inputMeal.value}</p><i class="fas fa-times-circle redHover"></i></li>`
             taskInput[2].insertAdjacentHTML("beforeend", newTask)
             inputMeal.value = ""
+            // sortable
+            let sortTask = document.getElementById("mealInput")
+            let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag'})
             // delete
             let deleteBtn = document.querySelectorAll(".redHover")
             deleteBtn.forEach(element => {
@@ -80,9 +88,12 @@ inputBuy.addEventListener('keypress', (e) => {
     } else {
         if (e.key === 'Enter') {
             addTask({table: chooseDay.innerHTML, column: "buy", data:inputBuy.value});
-            let newTask = `<article class="inputDisplay"><p>${inputBuy.value}</p><i class="fas fa-times-circle redHover"></i></article>`
+            let newTask = `<li class="inputDisplay"><p>${inputBuy.value}</p><i class="fas fa-times-circle redHover"></i></li>`
             taskInput[3].insertAdjacentHTML("beforeend", newTask)
-            inputBuy.value = "" 
+            inputBuy.value = ""
+            // sortable
+            let sortTask = document.getElementById("buyInput")
+            let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag'}) 
             // delete
             let deleteBtn = document.querySelectorAll(".redHover")
             deleteBtn.forEach(element => {
@@ -99,26 +110,38 @@ inputBuy.addEventListener('keypress', (e) => {
 const displayTask = (data) => {
   data.allTaskThursday.forEach(el => {
     if(el.todo != null){
-    let newTask = `<article class="inputDisplay"><p>${el.todo}</p><i class="fas fa-times-circle redHover"></i></article>`
+    let newTask = `<li class="inputDisplay"><p>${el.todo}</p><i class="fas fa-times-circle redHover"></i></li>`
     taskInput[0].insertAdjacentHTML("beforeend", newTask)
+    // sortable
+    const sortTask = document.getElementById("toDoInput")
+    const sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag'})
     }
   });
   data.allTaskThursday.forEach(el => {
     if(el.workout != null){
-    let newTask = `<article class="inputDisplay"><p>${el.workout}</p><i class="fas fa-times-circle redHover"></i></article>`
+    let newTask = `<li class="inputDisplay"><p>${el.workout}</p><i class="fas fa-times-circle redHover"></i></li>`
     taskInput[1].insertAdjacentHTML("beforeend", newTask)
+    // sortable
+    let sortTask = document.getElementById("workoutInput")
+    let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag'})
     }
   });
   data.allTaskThursday.forEach(el => {
     if(el.meal != null){
-    let newTask = `<article class="inputDisplay"><p>${el.meal}</p><i class="fas fa-times-circle redHover"></i></article>`
+    let newTask = `<li class="inputDisplay"><p>${el.meal}</p><i class="fas fa-times-circle redHover"></i></li>`
     taskInput[2].insertAdjacentHTML("beforeend", newTask)
+    // sortable
+    let sortTask = document.getElementById("mealInput")
+    let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag'})
     }
   });
   data.allTaskThursday.forEach(el => {
     if(el.buy != null){
-    let newTask = `<article class="inputDisplay"><p>${el.buy}</p><i class="fas fa-times-circle redHover"></i></article>`
+    let newTask = `<li class="inputDisplay"><p>${el.buy}</p><i class="fas fa-times-circle redHover"></i></li>`
     taskInput[3].insertAdjacentHTML("beforeend", newTask)
+    // sortable
+    let sortTask = document.getElementById("buyInput")
+    let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag'})
     }
   });
   let deleteBtn = document.querySelectorAll(".redHover")
@@ -178,7 +201,6 @@ const addTask = (infos) => {
   }
   loadtask();
 
-
 const deleteTheTask = (info) => {
     fetch('api/deletetask', {
       method: 'POST', // or 'PUT'
@@ -196,5 +218,3 @@ const deleteTheTask = (info) => {
     })
   }
 // Take activies input end
-
-

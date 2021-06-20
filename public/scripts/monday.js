@@ -80,7 +80,7 @@ inputBuy.addEventListener('keypress', (e) => {
     } else {
         if (e.key === 'Enter') {
             addTask({table: chooseDay.innerHTML, column: "buy", data:inputBuy.value});
-            let newTask = `<article class="inputDisplay"><p>${inputBuy.value}</p><i class="fas fa-times-circle"></i></article>`
+            let newTask = `<article class="inputDisplay"><p>${inputBuy.value}</p><i class="fas fa-times-circle redHover"></i></article>`
             taskInput[3].insertAdjacentHTML("beforeend", newTask)
             inputBuy.value = "" 
             // delete
@@ -121,6 +121,17 @@ const displayTask = (data) => {
     taskInput[3].insertAdjacentHTML("beforeend", newTask)
     }
   });
+  let deleteBtn = document.querySelectorAll(".redHover")
+  deleteBtn.forEach(element => {
+    element.addEventListener("click", (closeBtn) => {
+        let taskRemove = closeBtn.target.previousSibling
+        deleteTheTask({table:chooseDay.innerHTML, column:"todo", data:taskRemove.innerHTML})
+        deleteTheTask({table:chooseDay.innerHTML, column:"workout", data:taskRemove.innerHTML})
+        deleteTheTask({table:chooseDay.innerHTML, column:"meal", data:taskRemove.innerHTML})
+        deleteTheTask({table:chooseDay.innerHTML, column:"buy", data:taskRemove.innerHTML})
+        taskRemove.parentNode.remove()
+        })
+}); 
 }
 
 

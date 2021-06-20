@@ -57,7 +57,10 @@ app.post('/api/deletetask', (req, res) => {
   manager.deletingTask(req.body)
 });
 
-
+app.post('/api/tasks/update', (req, res) => {
+  console.log(req.body)
+  manager.update(req.body)
+})
 
 
 

@@ -54,3 +54,7 @@
     border: 1px solid #BFC8C7;
     margin: 5px 0px;
 }
+.done-1{
+    background-color: #5ed7af;
+    box-shadow: 1px 0px 15px rgba(242, 244, 242, 0.25);
+}

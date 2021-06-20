@@ -111,7 +111,6 @@ const addingTask = (data) => {
 
   const update = (data) => {
     let db = new sqlite3.Database('db/db.lifeappdatabase');
-    console.log(data);
   
     db.run(`UPDATE ${data.table} SET done = ? WHERE ${data.condition} = ?`, [data.done, data.sunday_id], function(err) {
       if (err) {

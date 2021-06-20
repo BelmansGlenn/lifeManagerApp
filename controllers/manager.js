@@ -109,6 +109,20 @@ const addingTask = (data) => {
 
 
 
+  const update = (data) => {
+    let db = new sqlite3.Database('db/db.lifeappdatabase');
+  
+    db.run(`UPDATE ${data.table} SET done = ? WHERE ${data.condition} = ?`, [data.done, data.id], function(err) {
+      if (err) {
+        return console.error(err.message);
+      }
+  
+    });
+  
+    // close the database connection
+    db.close();
+  }
+
 
 
 
@@ -121,3 +135,4 @@ const addingTask = (data) => {
 exports.addingTask = addingTask;
 exports.displayingTask = displayingTask;
 exports.deletingTask = deletingTask;
+exports.update = update;

@@ -45,6 +45,10 @@ app.get('/sunday',(req, res) => {
 app.get('/tasksOfTheDay',(req, res) => {
   res.render('today.ejs');
 });
+app.get('/accomplishment',(req, res) => {
+  res.render('accomplishment.ejs');
+});
+
 
 
 // Create here your api setup

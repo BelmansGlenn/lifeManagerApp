@@ -49,6 +49,10 @@ app.get('/accomplishment',(req, res) => {
   res.render('accomplishment.ejs');
 });
 
+// week table 
+app.post('/api/createWeekTable', (req, res) => {
+  manager.createWeekTable(req.body)
+});
 
 
 // Create here your api setup

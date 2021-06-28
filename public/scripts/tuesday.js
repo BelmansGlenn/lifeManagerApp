@@ -5,6 +5,17 @@ const inputWorkout = document.getElementById("workout");
 const inputMeal = document.getElementById("meal");
 const inputBuy = document.getElementById("buy");
 const taskInput = document.querySelectorAll(".taskInput")
+const date = new Date();
+const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+const actualDay = weekday[date.getDay()]
+let weekCounter = 1
+// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+const newWeekTable = () => { 
+  if(11 === date.getHours() && 49 === date.getMinutes() && 1 === date.getDay()){
+    weekCounter++
+  } 
+}
+setInterval(newWeekTable, 10000);
 // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 inputToDo.addEventListener('keypress', (e) => {
     if (e.key === 'Enter' && inputToDo.value == "") {

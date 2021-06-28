@@ -123,7 +123,17 @@ const addingTask = (data) => {
     db.close();
   }
 
-
+const createWeekTable = (weekCounter) => {
+  console.log("COUCOU ===============>" + weekCounter.tablename);
+  console.log("COUCOU ===============>" + weekCounter.data);
+  let db = new sqlite3.Database('db/weekData.db');
+  db.run(`CREATE TABLE week${weekCounter.tablename} (week_id INTEGER PRIMARY KEY AUTOINCREMENT, task VARCHAR(100), taskdone BOOLEAN DEFAULT FALSE);`, function(err) {
+    if (err) {
+      return console.error(err.message)
+    }
+  })
+  db.close();
+}
 
 
 
@@ -136,3 +146,4 @@ exports.addingTask = addingTask;
 exports.displayingTask = displayingTask;
 exports.deletingTask = deletingTask;
 exports.update = update;
+exports.createWeekTable = createWeekTable;

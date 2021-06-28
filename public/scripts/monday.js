@@ -5,6 +5,19 @@ const inputWorkout = document.getElementById("workout");
 const inputMeal = document.getElementById("meal");
 const inputBuy = document.getElementById("buy");
 const taskInput = document.querySelectorAll(".taskInput")
+const date = new Date();
+const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+const actualDay = weekday[date.getDay()]
+let weekCounter = 1
+// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+const newWeekTable = () => { 
+  console.log("coucou");
+  if(11 === date.getHours() && 49 === date.getMinutes() && 1 === date.getDay()){
+    createNewWeekTable({tablename: weekCounter})
+    weekCounter++
+  } 
+}
+setInterval(newWeekTable, 10000);
 // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 inputToDo.addEventListener('keypress', (e) => {
     if (e.key === 'Enter' && inputToDo.value == "") {
@@ -242,3 +255,22 @@ const deleteTheTask = (info) => {
     })
   }
 // Take activies input end
+// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+const createNewWeekTable = (weekCounter) => {
+  fetch('api/createWeekTable', {
+    method: 'POST', // or 'PUT'
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(weekCounter),
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Success:', data);
+    
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
+// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

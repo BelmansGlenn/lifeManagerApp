@@ -38,8 +38,8 @@ const displayStats = (data) => {
             let ratio = dailyT.innerHTML
             ratio = downCounter * 100 / ratio
             dayRatio.innerHTML = Math.round(ratio)
-            colorRatio()
         })
+        colorRatio()
     } else if (actualDay === "Thursday") {
         dailyT.innerHTML = data.allTaskThursday.length
         data.allTaskThursday.forEach(e => {
@@ -49,8 +49,8 @@ const displayStats = (data) => {
             let ratio = dailyT.innerHTML
             ratio = downCounter * 100 / ratio
             dayRatio.innerHTML = Math.round(ratio)
-            colorRatio()
         })
+        colorRatio()
     } else if (actualDay === "Wednesday") {
         dailyT.innerHTML = data.allTaskWednesday.length
         data.allTaskWednesday.forEach(e => {
@@ -60,8 +60,8 @@ const displayStats = (data) => {
             let ratio = dailyT.innerHTML
             ratio = downCounter * 100 / ratio
             dayRatio.innerHTML = Math.round(ratio)
-            colorRatio()
         })
+        colorRatio()
     } else if (actualDay === "Tuesday") {
         dailyT.innerHTML = data.allTaskTuesday.length
         data.allTaskTuesday.forEach(e => {
@@ -71,8 +71,8 @@ const displayStats = (data) => {
             let ratio = dailyT.innerHTML
             ratio = downCounter * 100 / ratio
             dayRatio.innerHTML = Math.round(ratio)
-            colorRatio()
         })
+        colorRatio()
     } else if (actualDay === "Friday") {
         dailyT.innerHTML = data.allTaskFriday.length
         data.allTaskFriday.forEach(e => {
@@ -82,8 +82,8 @@ const displayStats = (data) => {
             let ratio = dailyT.innerHTML
             ratio = downCounter * 100 / ratio
             dayRatio.innerHTML = Math.round(ratio)
-            colorRatio()
         })
+        colorRatio()
     } else if (actualDay === "Saturday") {
         dailyT.innerHTML = data.allTaskSaturday.length
         data.allTaskSaturday.forEach(e => {
@@ -93,8 +93,8 @@ const displayStats = (data) => {
             let ratio = dailyT.innerHTML
             ratio = downCounter * 100 / ratio
             dayRatio.innerHTML = Math.round(ratio)
-            colorRatio()
         })
+        colorRatio()
     } else if (actualDay === "Sunday") {
         dailyT.innerHTML = data.allTaskSunday.length
         data.allTaskSunday.forEach(e => {
@@ -104,8 +104,8 @@ const displayStats = (data) => {
             let ratio = dailyT.innerHTML
             ratio = downCounter * 100 / ratio
             dayRatio.innerHTML = Math.round(ratio)
-            colorRatio()
         })
+        colorRatio()
     }
 }
 
@@ -113,10 +113,12 @@ const displayStats = (data) => {
 
 const colorRatio = () => {
     const checkRatio = document.querySelectorAll(".calculRatio")
+    console.log(checkRatio);
     checkRatio.forEach(e => {
+        console.log(e.innerHTML);
         if (e.innerHTML < "50") {
             e.parentNode.classList.add("under50")
-        } else if (e.innerHTML < "70") {
+        } else if (e.innerHTML < "70" && e.innerHTML > "50") {
             e.parentNode.classList.add("under70")
 
         } else {

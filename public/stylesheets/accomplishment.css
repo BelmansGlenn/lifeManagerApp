@@ -1,0 +1,54 @@
+.headerAccom {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px 30px;
+}
+.boxAccomp {
+    margin-top: 20px;
+}
+.fSize25center {
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.btnSize131 {
+    width: 131px;
+    height: 131px;
+}
+.statsBox {
+    display: flex;
+    justify-content: space-around;
+}
+.plannedTask {
+    font-size: 64px;
+}
+.boxSB {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.descriAccom {
+    font-size: 12px;
+    color: rgb(206 176 247);
+}
+.ratio {
+    font-weight: bold;
+    font-size: 42px;
+    line-height: 44px;
+    text-align: center;
+}
+/* JS CALL FOR COLORS  */
+.under50 {
+    color: rgba(217, 28, 28, 0.42);
+    text-shadow: 0px 0px 2px #D69D9D;
+}
+.under70 {
+    color: rgba(255, 192, 30, 0.42);
+    text-shadow: 0px 0px 2px #FFF6D5;
+}
+.over70 {
+    color: rgb(43 188 57 / 42%);
+    text-shadow: 0px 0px 2px #DDFFDC;
+}
+/* JS CALL FOR COLORS END  */

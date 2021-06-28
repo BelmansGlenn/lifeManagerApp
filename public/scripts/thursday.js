@@ -17,7 +17,10 @@ inputToDo.addEventListener('keypress', (e) => {
             inputToDo.value = ""
             // sortable
             let sortTask = document.getElementById("toDoInput")
-            let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag'})
+            let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag',
+          	onChange: function(evt) {
+            console.log(evt.newIndex) 
+            }})
             // delete
             let deleteBtn = document.querySelectorAll(".redHover")
             deleteBtn.forEach(element => {
@@ -43,7 +46,10 @@ inputWorkout.addEventListener('keypress', (e) => {
             inputWorkout.value = ""
             // sortable
             let sortTask = document.getElementById("workoutInput")
-            let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag'})
+            let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag',
+          	onChange: function(evt) {
+            console.log(evt.newIndex) 
+            }})
             // delete
             let deleteBtn = document.querySelectorAll(".redHover")
             deleteBtn.forEach(element => {
@@ -68,7 +74,10 @@ inputMeal.addEventListener('keypress', (e) => {
             inputMeal.value = ""
             // sortable
             let sortTask = document.getElementById("mealInput")
-            let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag'})
+            let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag',
+          	onChange: function(evt) {
+            console.log(evt.newIndex) 
+            }})
             // delete
             let deleteBtn = document.querySelectorAll(".redHover")
             deleteBtn.forEach(element => {
@@ -93,7 +102,10 @@ inputBuy.addEventListener('keypress', (e) => {
             inputBuy.value = ""
             // sortable
             let sortTask = document.getElementById("buyInput")
-            let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag'}) 
+            let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag',
+          	onChange: function(evt) {
+            console.log(evt.newIndex) 
+            }})
             // delete
             let deleteBtn = document.querySelectorAll(".redHover")
             deleteBtn.forEach(element => {
@@ -114,7 +126,10 @@ const displayTask = (data) => {
     taskInput[0].insertAdjacentHTML("beforeend", newTask)
     // sortable
     let sortTask = document.getElementById("toDoInput")
-    let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag'})
+    let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag',
+    onChange: function(evt) {
+    console.log(evt.newIndex) 
+    }})
     }
   });
   data.allTaskThursday.forEach(el => {
@@ -123,7 +138,10 @@ const displayTask = (data) => {
     taskInput[1].insertAdjacentHTML("beforeend", newTask)
     // sortable
     let sortTask = document.getElementById("workoutInput")
-    let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag'})
+    let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag',
+    onChange: function(evt) {
+    console.log(evt.newIndex) 
+    }})
     }
   });
   data.allTaskThursday.forEach(el => {
@@ -132,7 +150,10 @@ const displayTask = (data) => {
     taskInput[2].insertAdjacentHTML("beforeend", newTask)
     // sortable
     let sortTask = document.getElementById("mealInput")
-    let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag'})
+    let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag',
+    onChange: function(evt) {
+    console.log(evt.newIndex) 
+    }})
     }
   });
   data.allTaskThursday.forEach(el => {
@@ -141,7 +162,10 @@ const displayTask = (data) => {
     taskInput[3].insertAdjacentHTML("beforeend", newTask)
     // sortable
     let sortTask = document.getElementById("buyInput")
-    let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag'})
+    let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag',
+    onChange: function(evt) {
+    console.log(evt.newIndex) 
+    }})
     }
   });
   let deleteBtn = document.querySelectorAll(".redHover")

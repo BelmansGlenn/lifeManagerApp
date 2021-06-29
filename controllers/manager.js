@@ -6,7 +6,7 @@ const sqlite3 = require('sqlite3').verbose();
 const addingTask = (data) => {
     let db = new sqlite3.Database('db/db.lifeappdatabase');
     
-    db.run(`INSERT INTO ${data.table} (${data.column}) VALUES (?)`,[data.data], function(err) {
+    db.run(`INSERT INTO ${data.table} (${data.column}, id) VALUES (?, ?)`,[data.data, data.id], function(err) {
         if (err) {
           return console.log(err);
         }
@@ -30,49 +30,49 @@ const addingTask = (data) => {
       console.log('Connected to the movies database.');
     });
      db.serialize(() => {
-      db.each(`SELECT * FROM monday where monday_id IS NOT NULL`, (err, row) => {
+      db.each(`SELECT * FROM monday where monday_id IS NOT NULL ORDER BY sortable `, (err, row) => {
         if (err) {
           console.error(err.message);
         }
           sendData.allTaskMonday.push(row);
       });
 
-      db.each(`SELECT * FROM tuesday where tuesday_id IS NOT NULL`, (err, row) => {
+      db.each(`SELECT * FROM tuesday where tuesday_id IS NOT NULL ORDER BY sortable`, (err, row) => {
         if (err) {
           console.error(err.message);
         }
           sendData.allTaskTuesday.push(row);
       });
 
-      db.each(`SELECT * FROM wednesday where wednesday_id IS NOT NULL`, (err, row) => {
+      db.each(`SELECT * FROM wednesday where wednesday_id IS NOT NULL ORDER BY sortable`, (err, row) => {
         if (err) {
           console.error(err.message);
         }
           sendData.allTaskWednesday.push(row);
       });
 
-      db.each(`SELECT * FROM thursday where thursday_id IS NOT NULL`, (err, row) => {
+      db.each(`SELECT * FROM thursday where thursday_id IS NOT NULL ORDER BY sortable`, (err, row) => {
         if (err) {
           console.error(err.message);
         }
           sendData.allTaskThursday.push(row);
       });
 
-      db.each(`SELECT * FROM friday where friday_id IS NOT NULL`, (err, row) => {
+      db.each(`SELECT * FROM friday where friday_id IS NOT NULL ORDER BY sortable`, (err, row) => {
         if (err) {
           console.error(err.message);
         }
           sendData.allTaskFriday.push(row);
       });
 
-      db.each(`SELECT * FROM saturday where saturday_id IS NOT NULL `, (err, row) => {
+      db.each(`SELECT * FROM saturday where saturday_id IS NOT NULL ORDER BY sortable`, (err, row) => {
         if (err) {
           console.error(err.message);
         }
           sendData.allTaskSaturday.push(row);
       });
 
-      db.each(`SELECT * FROM sunday where sunday_id IS NOT NULL `, (err, row) => {
+      db.each(`SELECT * FROM sunday where sunday_id IS NOT NULL ORDER BY sortable`, (err, row) => {
         if (err) {
           console.error(err.message);
         }
@@ -122,6 +122,20 @@ const addingTask = (data) => {
     // close the database connection
     db.close();
   }
+  const updatePlace = (data) => {
+    console.log(data);
+    let db = new sqlite3.Database('db/db.lifeappdatabase');
+  
+    db.run(`UPDATE ${data.table} SET sortable = ? WHERE ${data.condition} = ?`, [data.place, data.id], function(err) {
+      if (err) {
+        return console.error(err.message);
+      }
+  
+    });
+  
+    // close the database connection
+    db.close();
+  }
 
 
 
@@ -136,3 +150,4 @@ exports.addingTask = addingTask;
 exports.displayingTask = displayingTask;
 exports.deletingTask = deletingTask;
 exports.update = update;
+exports.updatePlace = updatePlace;

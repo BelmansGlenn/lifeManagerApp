@@ -5,14 +5,20 @@ const inputWorkout = document.getElementById("workout");
 const inputMeal = document.getElementById("meal");
 const inputBuy = document.getElementById("buy");
 const taskInput = document.querySelectorAll(".taskInput")
+let w =0;
+let x =100;
+let y=200;
+let z=300;  
+
 // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 inputToDo.addEventListener('keypress', (e) => {
     if (e.key === 'Enter' && inputToDo.value == "") {
         alert("Write something")
     } else {
         if (e.key === 'Enter') {
-            addTask({table: chooseDay.innerHTML, column: "todo", data:inputToDo.value});
-            let newTask = `<li class="inputDisplay"><p>${inputToDo.value}</p><i class="fas fa-times-circle redHover"></i></li>`
+            w++;
+            addTask({table: chooseDay.innerHTML, column: "todo", data:inputToDo.value, id: w});
+            let newTask = `<li class="inputDisplay" data-id=${w}><p>${inputToDo.value}</p><i class="fas fa-times-circle redHover"></i></li>`
             taskInput[0].insertAdjacentHTML("beforeend", newTask)
             inputToDo.value = ""
             // sortable
@@ -25,9 +31,9 @@ inputToDo.addEventListener('keypress', (e) => {
             let deleteBtn = document.querySelectorAll(".redHover")
             deleteBtn.forEach(element => {
                 element.addEventListener("click", (closeBtn) => {
-                    let taskRemove = closeBtn.target.previousSibling
-                    deleteTheTask({table:chooseDay.innerHTML, column: "todo", data:taskRemove.innerHTML})
-                    taskRemove.parentNode.remove()
+                    let taskRemove = closeBtn.target.parentNode
+                    deleteTheTask({table:chooseDay.innerHTML, column: "id", data:taskRemove.dataset.id})
+                    taskRemove.remove()
                     })
             });
         }   
@@ -40,8 +46,9 @@ inputWorkout.addEventListener('keypress', (e) => {
         alert("Write something")
     } else {
         if (e.key === 'Enter') {
-            addTask({table: chooseDay.innerHTML, column: "workout", data:inputWorkout.value});
-            let newTask = `<li class="inputDisplay"><p>${inputWorkout.value}</p><i class="fas fa-times-circle redHover"></i></li>`
+            x++;
+            addTask({table: chooseDay.innerHTML, column: "workout", data:inputWorkout.value, id: x});
+            let newTask = `<li class="inputDisplay" data-id=${x}><p>${inputWorkout.value}</p><i class="fas fa-times-circle redHover"></i></li>`
             taskInput[1].insertAdjacentHTML("beforeend", newTask) 
             inputWorkout.value = ""
             // sortable
@@ -54,9 +61,9 @@ inputWorkout.addEventListener('keypress', (e) => {
             let deleteBtn = document.querySelectorAll(".redHover")
             deleteBtn.forEach(element => {
                 element.addEventListener("click", (closeBtn) => {
-                    let taskRemove = closeBtn.target.previousSibling
-                    deleteTheTask({table:chooseDay.innerHTML, column:"workout", data:taskRemove.innerHTML})
-                    taskRemove.parentNode.remove()
+                    let taskRemove = closeBtn.target.parentNode
+                    deleteTheTask({table:chooseDay.innerHTML, column:"id", data:taskRemove.dataset.id})
+                    taskRemove.remove()
                     })
             });
         }   
@@ -68,8 +75,9 @@ inputMeal.addEventListener('keypress', (e) => {
         alert("Write something")
     } else {
         if (e.key === 'Enter') {
-            addTask({table: chooseDay.innerHTML, column: "meal", data:inputMeal.value});
-            let newTask =  `<li class="inputDisplay"><p>${inputMeal.value}</p><i class="fas fa-times-circle redHover"></i></li>`
+            y++;
+            addTask({table: chooseDay.innerHTML, column: "meal", data:inputMeal.value, id: y});
+            let newTask =  `<li class="inputDisplay" data-id=${y}><p>${inputMeal.value}</p><i class="fas fa-times-circle redHover"></i></li>`
             taskInput[2].insertAdjacentHTML("beforeend", newTask)
             inputMeal.value = ""
             // sortable
@@ -82,9 +90,9 @@ inputMeal.addEventListener('keypress', (e) => {
             let deleteBtn = document.querySelectorAll(".redHover")
             deleteBtn.forEach(element => {
                 element.addEventListener("click", (closeBtn) => {
-                    let taskRemove = closeBtn.target.previousSibling
-                    deleteTheTask({table:chooseDay.innerHTML, column:"meal", data:taskRemove.innerHTML})
-                    taskRemove.parentNode.remove()
+                    let taskRemove = closeBtn.target.parentNode
+                    deleteTheTask({table:chooseDay.innerHTML, column:"id", data:taskRemove.dataset.id})
+                    taskRemove.remove()
                     })
             });              
         }   
@@ -96,8 +104,9 @@ inputBuy.addEventListener('keypress', (e) => {
         alert("Write something")
     } else {
         if (e.key === 'Enter') {
-            addTask({table: chooseDay.innerHTML, column: "buy", data:inputBuy.value});
-            let newTask = `<li class="inputDisplay"><p>${inputBuy.value}</p><i class="fas fa-times-circle redHover"></i></li>`
+            z++;
+            addTask({table: chooseDay.innerHTML, column: "buy", data:inputBuy.value, id: z});
+            let newTask = `<li class="inputDisplay" data-id=${z}><p>${inputBuy.value}</p><i class="fas fa-times-circle redHover"></i></li>`
             taskInput[3].insertAdjacentHTML("beforeend", newTask)
             inputBuy.value = ""
             // sortable
@@ -110,9 +119,9 @@ inputBuy.addEventListener('keypress', (e) => {
             let deleteBtn = document.querySelectorAll(".redHover")
             deleteBtn.forEach(element => {
                 element.addEventListener("click", (closeBtn) => {
-                    let taskRemove = closeBtn.target.previousSibling
-                    deleteTheTask({table:chooseDay.innerHTML, column:"buy", data:taskRemove.innerHTML})
-                    taskRemove.parentNode.remove()
+                    let taskRemove = closeBtn.target.parentNode
+                    deleteTheTask({table:chooseDay.innerHTML, column:"id", data:taskRemove.dataset.id})
+                    taskRemove.remove()
                     })
             }); 
         }   
@@ -122,61 +131,63 @@ inputBuy.addEventListener('keypress', (e) => {
 const displayTask = (data) => {
   data.allTaskFriday.forEach(el => {
     if(el.todo != null){
-    let newTask = `<li class="inputDisplay"><p>${el.todo}</p><i class="fas fa-times-circle redHover"></i></li>`
+    let newTask = `<li class="inputDisplay" data-id=${el.friday_id}><p>${el.todo}</p><i class="fas fa-times-circle redHover"></i></li>`
     taskInput[0].insertAdjacentHTML("beforeend", newTask)
     // sortable
     let sortTask = document.getElementById("toDoInput")
     let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag',
     onChange: function(evt) {
-    console.log(evt.newIndex) 
+    console.log(evt.newIndex)
+    updatePlace();  
     }})
     }
   });
   data.allTaskFriday.forEach(el => {
     if(el.workout != null){
-    let newTask = `<li class="inputDisplay"><p>${el.workout}</p><i class="fas fa-times-circle redHover"></i></li>`
+    let newTask = `<li class="inputDisplay" data-id=${el.friday_id}><p>${el.workout}</p><i class="fas fa-times-circle redHover"></i></li>`
     taskInput[1].insertAdjacentHTML("beforeend", newTask)
     // sortable
     let sortTask = document.getElementById("workoutInput")
     let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag',
     onChange: function(evt) {
-    console.log(evt.newIndex) 
+    console.log(evt.newIndex)
+    updatePlace();  
     }})
     }
   });
   data.allTaskFriday.forEach(el => {
     if(el.meal != null){
-    let newTask = `<li class="inputDisplay"><p>${el.meal}</p><i class="fas fa-times-circle redHover"></i></li>`
+    let newTask = `<li class="inputDisplay" data-id=${el.friday_id}><p>${el.meal}</p><i class="fas fa-times-circle redHover"></i></li>`
     taskInput[2].insertAdjacentHTML("beforeend", newTask)
     // sortable
     let sortTask = document.getElementById("mealInput")
     let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag',
     onChange: function(evt) {
     console.log(evt.newIndex) 
+    updatePlace(); 
     }})
     }
   });
   data.allTaskFriday.forEach(el => {
     if(el.buy != null){
-    let newTask = `<li class="inputDisplay"><p>${el.buy}</p><i class="fas fa-times-circle redHover"></i></li>`
+    let newTask = `<li class="inputDisplay" data-id=${el.friday_id}><p>${el.buy}</p><i class="fas fa-times-circle redHover"></i></li>`
     taskInput[3].insertAdjacentHTML("beforeend", newTask)
     // sortable
     let sortTask = document.getElementById("buyInput")
     let sortable = Sortable.create(sortTask, {animation: 100, ghostClass: 'myghostclass', dragClass: 'sortable-drag',
     onChange: function(evt) {
-    console.log(evt.newIndex) 
+    console.log(evt.newIndex)
+    updatePlace(); 
     }})
     }
   });
   let deleteBtn = document.querySelectorAll(".redHover")
   deleteBtn.forEach(element => {
     element.addEventListener("click", (closeBtn) => {
-        let taskRemove = closeBtn.target.previousSibling
-        deleteTheTask({table:chooseDay.innerHTML, column:"todo", data:taskRemove.innerHTML})
-        deleteTheTask({table:chooseDay.innerHTML, column:"workout", data:taskRemove.innerHTML})
-        deleteTheTask({table:chooseDay.innerHTML, column:"meal", data:taskRemove.innerHTML})
-        deleteTheTask({table:chooseDay.innerHTML, column:"buy", data:taskRemove.innerHTML})
-        taskRemove.parentNode.remove()
+      let taskRemove = closeBtn.target.parentNode
+      console.log(taskRemove.dataset.id);
+      deleteTheTask({table:chooseDay.innerHTML, column:"friday_id", data: taskRemove.dataset.id})
+      taskRemove.remove()
         })
 }); 
 }
@@ -242,3 +253,25 @@ const deleteTheTask = (info) => {
     })
   }
 // Take activies input end
+
+const updatePlace = (infos) => {
+  let inputDisplay = document.querySelectorAll('.inputDisplay');
+  for(let i =0; i<inputDisplay.length; i++){
+    fetch('api/updateplace', {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({table: "friday",id: inputDisplay[i].dataset.id, place:i, condition:"friday_id"}),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+      
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  }
+  
+}

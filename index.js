@@ -65,6 +65,10 @@ app.post('/api/tasks/update', (req, res) => {
   console.log(req.body)
   manager.update(req.body)
 })
+app.post('/api/updateplace', (req, res) => {
+  manager.updatePlace(req.body)
+})
+
 
 
 

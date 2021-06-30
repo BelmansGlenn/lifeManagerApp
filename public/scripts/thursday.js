@@ -10,7 +10,38 @@ let w =0;
 let x =100;
 let y=200;
 let z=300;  
-
+// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+const date = new Date();
+const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+const actualDay = weekday[date.getDay()]
+// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+const newDay = () => {
+  if(23=== date.getHours() && 59 === date.getMinutes() && actualDay === "Thursday"){
+    let allTasksDisplayed = document.querySelectorAll(".taskInput")
+    allTasksDisplayed.forEach(e => {
+      e.innerHTML = ""
+    });
+    resetTheDay(actualDay)
+  } 
+}
+setInterval(newDay, 20000);
+// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+const resetTheDay = () => {
+  fetch('api/resetTheDay', {
+    method: 'POST', 
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({day: actualDay}),
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Success:', data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  })
+}
 // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 inputToDo.addEventListener('keypress', (e) => {
     if (e.key === 'Enter' && inputToDo.value == "") {

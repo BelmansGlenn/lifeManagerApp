@@ -137,6 +137,19 @@ const addingTask = (data) => {
     db.close();
   }
 
+// Reset the Day 
+const resetTheDay = (data) => {
+  console.log(data);
+  let db = new sqlite3.Database('db/db.lifeappdatabase')
+  db.run(`DELETE from ${data.day};`, function(err) {
+    if (err) {
+      return console.error(err.message);
+    }
+  });
+  db.close();
+}
+
+
 
 
 
@@ -151,3 +164,4 @@ exports.displayingTask = displayingTask;
 exports.deletingTask = deletingTask;
 exports.update = update;
 exports.updatePlace = updatePlace;
+exports.resetTheDay = resetTheDay;

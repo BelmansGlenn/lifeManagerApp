@@ -49,7 +49,9 @@ app.get('/accomplishment',(req, res) => {
   res.render('accomplishment.ejs');
 });
 
-
+app.post('/api/resetTheDay', (req, res) => {
+  manager.resetTheDay(req.body)
+});
 
 // Create here your api setup
 app.post('/api/addtask', (req, res) => {
